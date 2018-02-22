@@ -20,7 +20,7 @@ describe('Initial Page', function(){
         expect(initialPage.getTitle()).toEqual(initialPageTitle);
     })
 
-   /* it('Ask for the password to access the chat', function(){
+   it('Ask for the password to access the chat', function(){
 
         initialPage.clickOnChat();
 
@@ -32,5 +32,5 @@ describe('Initial Page', function(){
         initialPage.clickOnMyAccount();
 
         expect(initialPage.getTitle()).toEqual(myAccountTitle);
-   })*/
+   })
 })
