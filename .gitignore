@@ -6,4 +6,4 @@ screenshots/
 package.json
 package-lock.json
 *.html
-index
+index.js
