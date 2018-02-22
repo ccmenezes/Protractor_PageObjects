@@ -1,2 +1,8 @@
+.git/
 .vscode/
 node_modules/
+reports/
+screenshots/
+package.json
+package-lock.json
+*.html
