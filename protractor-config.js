@@ -19,6 +19,13 @@ exports.config = {
 
         browser.waitForAngularEnabled(false);
 
+        jasmine.getEnv().addReporter(new SpecReporter({
+            displayFailuresSummary: true,
+            displayFailedSpec: true,
+            displaySuiteNumber: true,
+            displaySpecDuration: true,
+        }));
+
         return global.browser.getProcessedConfig().then(function (config) {
             var Jasmine2HtmlReporter = require('./index.js');
 
@@ -27,13 +34,7 @@ exports.config = {
                 fixedScreenshotName: true,
                 cleanDestination: true
             }));
-        });
-        jasmine.getEnv().addReporter(new SpecReporter({
-            displayFailuresSummary: true,
-            displayFailedSpec: true,
-            displaySuiteNumber: true,
-            displaySpecDuration: true,
-        }));
+        });        
     },
     
     jasmineNodeOpts: {

@@ -15,11 +15,11 @@ describe('Initial Page', function(){
     })
 
     it('Ask for the password to insert the ad', function(){
-        let initialPageTitle = "OLX - O Maior Site de Compra e Venda do Brasil";
+        let myAccountTitle = "Minha Conta | OLX";
 
         initialPage.adLink.click();
         
-        expect(initialPage.getTitle()).toEqual(initialPageTitle);
+        expect(initialPage.getTitle()).toEqual(myAccountTitle);
     })
 
    it('Ask for the password to access the chat', function(){
