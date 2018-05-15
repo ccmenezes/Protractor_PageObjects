@@ -3,7 +3,7 @@ exports.config = {
     capabilities: {
     browserName: 'chrome',
         chromeOptions: {
-            args: ["window-size=1600,900", "incognito"]
+            args: ["incognito"]
         }
     },
 
@@ -12,6 +12,10 @@ exports.config = {
     specs: ['./test/spec/initial-spec.js'],
 
     onPrepare() {
+        browser.manage().window().maximize();
+        browser.manage().timeouts().implicitlyWait(5000);
+        browser.manage().timeouts().setScriptTimeout(60000);
+
         browser.waitForAngularEnabled(false);
 
         return global.browser.getProcessedConfig().then(function (config) {
@@ -29,5 +33,7 @@ exports.config = {
     jasmineNodeOpts: {
         showColors: true, 
         defaultTimeoutInterval: 40000,
+        print: function() {
+        }
     }
 };

@@ -1,35 +1,39 @@
 //browser.waitForAngularEnabled(false);
-let initialPage = require('../e2e/initial-page.js');
-
+const InitialPage = require('../e2e/pageobjects/initial-page.js');
+const Helper = require('../e2e/helper.js')
 
 describe('Initial Page', function(){
 
-    let myAccountTitle = "Minha Conta | OLX";
-    let initialPageTitle = "OLX - O Maior Site de Compra e Venda do Brasil";
+    var initialPage = new InitialPage();
+    var helper = new Helper();
 
     beforeEach(function(){
-        browser.driver.sleep(5000);
-        browser.get('http://olx.com.br');
-        browser.driver.sleep(5000);
+        let tempoEspera = 5000;
+        let paginaInicial = 'http://olx.com.br';
+        helper.navigateTo(paginaInicial);
+        helper.fluentWait(tempoEspera);
     })
 
     it('Ask for the password to insert the ad', function(){
+        let initialPageTitle = "OLX - O Maior Site de Compra e Venda do Brasil";
 
-        initialPage.clickOnChat();
+        initialPage.adLink.click();
         
         expect(initialPage.getTitle()).toEqual(initialPageTitle);
     })
 
    it('Ask for the password to access the chat', function(){
-
-        initialPage.clickOnChat();
+        let initialPageTitle = "OLX - O Maior Site de Compra e Venda do Brasil";
+    
+        initialPage.onChat.click();
 
         expect(initialPage.getTitle()).toEqual(initialPageTitle);
     })
 
     it('Ask for the password to access my account', function(){
+        let myAccountTitle = "Minha Conta | OLX";
 
-        initialPage.clickOnMyAccount();
+        initialPage.myAccountTitle();
 
         expect(initialPage.getTitle()).toEqual(myAccountTitle);
    })
