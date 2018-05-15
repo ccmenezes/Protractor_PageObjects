@@ -1,6 +1,6 @@
 //browser.waitForAngularEnabled(false);
-const InitialPage = require('../e2e/pageobjects/initial-page.js');
-const Helper = require('../e2e/helper.js')
+var InitialPage = require('../e2e/pageobjects/initial-page.js');
+var Helper = require('../e2e/helper.js')
 
 describe('Initial Page', function(){
 
@@ -33,7 +33,7 @@ describe('Initial Page', function(){
     it('Ask for the password to access my account', function(){
         let myAccountTitle = "Minha Conta | OLX";
 
-        initialPage.myAccountTitle();
+        initialPage.myAccount.click();
 
         expect(initialPage.getTitle()).toEqual(myAccountTitle);
    })

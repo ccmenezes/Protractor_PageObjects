@@ -1,3 +1,4 @@
+let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 exports.config = {
     
     capabilities: {
@@ -27,12 +28,18 @@ exports.config = {
                 cleanDestination: true
             }));
         });
-
+        jasmine.getEnv().addReporter(new SpecReporter({
+            displayFailuresSummary: true,
+            displayFailedSpec: true,
+            displaySuiteNumber: true,
+            displaySpecDuration: true,
+        }));
     },
     
     jasmineNodeOpts: {
         showColors: true, 
         defaultTimeoutInterval: 40000,
+        silent: false,
         print: function() {
         }
     }
